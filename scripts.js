@@ -1,3 +1,7 @@
+let firstOperand = "";
+let secondOperand = "";
+let problem = "";
+
 let mainOutput = document.querySelector(".main-output");
 let secondOutput = document.querySelector(".secondary-output");
 let clearButton = document.querySelector(".btn-clear");
@@ -8,7 +12,7 @@ let addButton = document.querySelector(".btn-add");
 
 clearButton.addEventListener('click', clear);
 deleteButton.addEventListener('click', deleteNumber);
-// equalsButton.addEventListener('click', evaluate);
+equalsButton.addEventListener('click', evaluate);
 addButton.addEventListener('click', add);
 
 
@@ -23,14 +27,31 @@ function appendNumber(number) {
 }
 
 function clear() {
-  mainOutput.textContent = 0;
+  mainOutput.textContent = "";
+  secondOutput.textContent = "";
+  firstOperand = 0;
+  secondOperand = 0;
 }
 
 function deleteNumber() {
   mainOutput.textContent = mainOutput.textContent.toString().slice(0, -1);
 }
 
+function evaluate() {
+  secondOperand = mainOutput.textContent;
+  secondOutput.textContent += " " + mainOutput.textContent + " " + "=";
+  switch (problem) {
+    case "addition":  
+      mainOutput.textContent = Number(firstOperand) + Number(secondOperand);
+    break
+
+  }
+}
+
 function add() {
+  firstOperand = mainOutput.textContent;
   secondOutput.textContent = mainOutput.textContent + ' ' + '+';
+  mainOutput.textContent = "";
+  problem = "addition";
 }
 
