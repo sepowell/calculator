@@ -1,6 +1,14 @@
+@font-face {
+  font-family: coder;
+  src: url(PressStart2P-Regular.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
+  color: greenyellow;
+  font-family: coder;
+  font-size: 20px;
 }
 
 .main {
@@ -9,17 +17,31 @@
   justify-content: center;
   height: 100vh;
   width: 100vw;
+  background-color: rgb(58, 52, 52);
 }
 
 .calculator-body {
   text-align: center;
-  height: 700px;
-  width: 400px;
+  height: auto;
+  width: 420px;
   border: 2px solid black;
-  background-color: pink;
+  background-color: rgb(17, 105, 35);
+  padding: 10px;
+  border-radius: 10px;
+  position: absolute;
+}
+
+.screen {
+  height: 115px;
+  margin-top: 10px;
+  background-color: black;
+  border-radius: 6px;
+  padding: 10px;
+  text-align: right;
 }
 
 .buttons-grid {
+  margin-top: 25px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px; 
@@ -31,7 +53,9 @@
 
 .btn {
   border: 2px solid black;
-  padding: 20px;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: black;
 }
 
 .btn:hover {
