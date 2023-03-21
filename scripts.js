@@ -38,7 +38,9 @@ function deleteNumber() {
 }
 
 function evaluate() {
+  if (secondOutput.textContent == "") return;
   secondOperand = mainOutput.textContent;
+  if (firstOperand == "" || secondOperand == "") return;
   secondOutput.textContent += " " + mainOutput.textContent + " " + "=";
   switch (problem) {
     case "addition":  
@@ -46,9 +48,11 @@ function evaluate() {
     break
 
   }
+  firstOperand = "";
 }
 
 function add() {
+  if (mainOutput.textContent == "") return;
   firstOperand = mainOutput.textContent;
   secondOutput.textContent = mainOutput.textContent + ' ' + '+';
   mainOutput.textContent = "";
