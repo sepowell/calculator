@@ -22,6 +22,7 @@ numberButton.forEach(button => {
 });
 
 function appendNumber(number) {
+  if (mainOutput.textContent.length == 10) return;
   mainOutput.textContent += number;
 }
 
