@@ -15,7 +15,6 @@ deleteButton.addEventListener('click', deleteNumber);
 equalsButton.addEventListener('click', evaluate);
 addButton.addEventListener('click', add);
 
-
 numberButton.forEach(button => {
   button.addEventListener("click", () => {
     appendNumber(button.textContent);
@@ -53,6 +52,9 @@ function evaluate() {
 
 function add() {
   if (mainOutput.textContent == "") return;
+  if (!mainOutput.textContent == "") {
+    evaluate();
+  }
   firstOperand = mainOutput.textContent;
   secondOutput.textContent = mainOutput.textContent + ' ' + '+';
   mainOutput.textContent = "";
