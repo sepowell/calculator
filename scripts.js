@@ -16,6 +16,7 @@ let equalsButton = document.querySelector(".btn-equals");
 let addButton = document.querySelector(".btn-add");
 let subtractButton = document.querySelector(".btn-subtract");
 let multiplyButton = document.querySelector(".btn-multiply");
+let divideButton = document.querySelector(".btn-divide");
 
 clearButton.addEventListener('click', clear);
 deleteButton.addEventListener('click', deleteNumber);
@@ -23,7 +24,7 @@ equalsButton.addEventListener('click', evaluate);
 addButton.addEventListener('click', add);
 subtractButton.addEventListener('click', subtract);
 multiplyButton.addEventListener('click', multiply);
-
+divideButton.addEventListener('click', divide);
 
 numberButton.forEach(button => {
   button.addEventListener("click", () => {
@@ -72,6 +73,10 @@ function evaluate() {
       break;
     case "*":
       answer  = Number(firstOperand) * Number(secondOperand);
+      break;
+    case "/":
+      answer = Number(firstOperand) / Number(secondOperand);
+      break;
   }
   mainOutput.textContent = answer;
   firstOperand = answer;
@@ -122,3 +127,16 @@ function multiply() {
   mainOutput.textContent = "";
 }
 
+function divide() {
+  if (mainOutput.textContent == "") return;
+  operator = "/";
+  evaluated = "";
+  if (!firstOperand == "" && !secondOperand == "") {
+    evaluate();
+    return; 
+  } else {
+    secondOutput.textContent = `${firstOperand} ${operator}`;
+  }  
+  readToSecond = "true"; 
+  mainOutput.textContent = "";
+}
