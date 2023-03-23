@@ -65,14 +65,15 @@ function evaluate() {
     case "+":  
       answer = Number(firstOperand) + Number(secondOperand);
       break;
-    case "subtraction":
-      mainOutput.textContent = Number(firstOperand) - Number(secondOperand);
+    case "-":
+      answer = Number(firstOperand) - Number(secondOperand);
       break;
   }
   mainOutput.textContent = answer;
   firstOperand = answer;
   secondOperand = "";
   evaluated = "true";
+  operator = "";
 }
 
 function add() {
@@ -91,12 +92,15 @@ function add() {
 
 function subtract() {
   if (mainOutput.textContent == "") return;
-  if (!mainOutput.textContent == "") {
+  operator = "-";
+  evaluated = "";
+  if (!firstOperand == "" && !secondOperand == "") {
     evaluate();
-  }
-  firstOperand = mainOutput.textContent;
-  secondOutput.textContent = mainOutput.textContent + ' ' + '-';
+    return; 
+  } else {
+    secondOutput.textContent = `${firstOperand} ${operator}`;
+  }  
+  readToSecond = "true"; 
   mainOutput.textContent = "";
-  problem = "subtraction";
 }
 
