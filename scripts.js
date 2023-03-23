@@ -4,7 +4,6 @@ let problem = "";
 let operator = "";
 let answer = "";
 let evaluated = "";
-
 let readToSecond = "false";
 
 let mainOutput = document.querySelector(".main-output");
@@ -17,6 +16,7 @@ let addButton = document.querySelector(".btn-add");
 let subtractButton = document.querySelector(".btn-subtract");
 let multiplyButton = document.querySelector(".btn-multiply");
 let divideButton = document.querySelector(".btn-divide");
+let decimalButton = document.querySelector(".btn-opp");
 
 clearButton.addEventListener('click', clear);
 deleteButton.addEventListener('click', deleteNumber);
@@ -25,6 +25,7 @@ addButton.addEventListener('click', add);
 subtractButton.addEventListener('click', subtract);
 multiplyButton.addEventListener('click', multiply);
 divideButton.addEventListener('click', divide);
+decimalButton.addEventListener('click', appendDecimal);
 
 numberButton.forEach(button => {
   button.addEventListener("click", () => {
@@ -83,6 +84,10 @@ function evaluate() {
   secondOperand = "";
   evaluated = "true";
   operator = "";
+}
+
+function appendDecimal() {
+  mainOutput.textContent += "."; 
 }
 
 function add() {
