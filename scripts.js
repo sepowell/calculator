@@ -79,11 +79,15 @@ function evaluate() {
       answer = Number(firstOperand) / Number(secondOperand);
       break;
   }
-  mainOutput.textContent = answer;
+  mainOutput.textContent = roundResult(answer);
   firstOperand = answer;
   secondOperand = "";
   evaluated = "true";
   operator = "";
+}
+
+function roundResult(number) {
+  return Math.round(number * 1000) / 1000;
 }
 
 function appendDecimal() {
