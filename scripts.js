@@ -87,61 +87,90 @@ function evaluate() {
 }
 
 function appendDecimal() {
+  if (mainOutput.textContent.length == 10) return;
   mainOutput.textContent += "."; 
 }
 
 function add() {
   if (mainOutput.textContent == "") return;
-  operator = "+";
-  evaluated = "";
-  if (!firstOperand == "" && !secondOperand == "") {
+  if (operator == "-" || operator == "*" || operator == "/") {
     evaluate();
-    return; 
+  }
+  if (operator == "") {
+    operator = "+";
+    evaluated = "";
+    if (!firstOperand == "" && !secondOperand == "") {
+      evaluate();
+      return; 
+    } else {
+      secondOutput.textContent = `${firstOperand} ${operator}`;
+    }  
+    readToSecond = "true"; 
+    mainOutput.textContent = "";
   } else {
-    secondOutput.textContent = `${firstOperand} ${operator}`;
-  }  
-  readToSecond = "true"; 
-  mainOutput.textContent = "";
+    console.log("error");
+  }
 }
 
 function subtract() {
   if (mainOutput.textContent == "") return;
-  operator = "-";
-  evaluated = "";
-  if (!firstOperand == "" && !secondOperand == "") {
+  if (operator == "+" || operator == "*" || operator == "/") {
     evaluate();
-    return; 
+  }
+  if (operator == "") {
+    operator = "-";
+    evaluated = "";
+    if (!firstOperand == "" && !secondOperand == "") {
+      evaluate();
+      return; 
+    } else {
+      secondOutput.textContent = `${firstOperand} ${operator}`;
+    }  
+    readToSecond = "true"; 
+    mainOutput.textContent = "";
   } else {
-    secondOutput.textContent = `${firstOperand} ${operator}`;
-  }  
-  readToSecond = "true"; 
-  mainOutput.textContent = "";
+    console.log("error");
+  }
 }
 
 function multiply() {
   if (mainOutput.textContent == "") return;
-  operator = "*";
-  evaluated = "";
-  if (!firstOperand == "" && !secondOperand == "") {
+  if (operator == "+" || operator == "-" || operator == "/") {
     evaluate();
-    return; 
+  }
+  if (operator == "") {
+    operator = "*";
+    evaluated = "";
+    if (!firstOperand == "" && !secondOperand == "") {
+      evaluate();
+      return; 
+    } else {
+      secondOutput.textContent = `${firstOperand} ${operator}`;
+    }  
+    readToSecond = "true"; 
+    mainOutput.textContent = "";
   } else {
-    secondOutput.textContent = `${firstOperand} ${operator}`;
-  }  
-  readToSecond = "true"; 
-  mainOutput.textContent = "";
+    console.log("error");
+  }
 }
 
 function divide() {
   if (mainOutput.textContent == "") return;
-  operator = "/";
-  evaluated = "";
-  if (!firstOperand == "" && !secondOperand == "") {
+  if (operator == "+" || operator == "*" || operator == "-") {
     evaluate();
-    return; 
+  }
+  if (operator == "") {
+    operator = "/";
+    evaluated = "";
+    if (!firstOperand == "" && !secondOperand == "") {
+      evaluate();
+      return; 
+    } else {
+      secondOutput.textContent = `${firstOperand} ${operator}`;
+    }  
+    readToSecond = "true"; 
+    mainOutput.textContent = "";
   } else {
-    secondOutput.textContent = `${firstOperand} ${operator}`;
-  }  
-  readToSecond = "true"; 
-  mainOutput.textContent = "";
+    console.log("error");
+  }
 }
