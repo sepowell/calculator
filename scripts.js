@@ -76,6 +76,10 @@ function evaluate() {
       answer  = Number(firstOperand) * Number(secondOperand);
       break;
     case "/":
+      if (secondOperand == 0) {
+        alert("You can't divide by 0!");
+        return;
+      }
       answer = Number(firstOperand) / Number(secondOperand);
       break;
   }
