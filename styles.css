@@ -74,3 +74,32 @@
   background-color: rgb(156, 152, 152);
   cursor: pointer;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 75px;
+  text-align: center;
+  color: greenyellow;
+  background-color: rgb(39, 38, 38);
+}
+
+footer > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer >div > p {
+  margin-top: 25px;
+  font-size: 15px;
+}
+
+footer > div > p > a {
+  color: rgb(91, 91, 235);
+  font-size: 15px;
+}
+
+footer > div > p > a:hover {
+  color:darkorange;
+}
